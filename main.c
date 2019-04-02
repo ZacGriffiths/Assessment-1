@@ -14,6 +14,9 @@ printf("e) substitution cipher decryption with given substitutions\n");
 printf("f) substitution cipher decryption (no help)\n\n");
 printf("Selection: ");
 scanf(%c, &c);
+//add
 }
 while ()
 }
+
+
