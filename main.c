@@ -3,8 +3,9 @@
 int main(void){
 
  /* This will be the user interface*/
-char c;
-  do {
+char c = 0;
+     do
+     {
      printf("Please enter a letter that correspondes to the function you wish to use\n");
      printf("a) rotation cipher encryption\n");
      printf("b) rotation cipher decryption using the rotation amount\n");
@@ -13,10 +14,11 @@ char c;
      printf("e) substitution cipher decryption with given substitutions\n");   
      printf("f) substitution cipher decryption (no help)\n\n");
      printf("Selection: ");
-     scanf(" %c", &c);
-     }
-     while(c < 'a' || c > 'f');          /*the do loop is repeated until one of the letters is inputed*/
-      
+     scanf("%c", &c);
+ }
+
+     while(c < 'a' || c > 'f');        /*the do loop is repeated until one of the letters is inputed*/
+    {
       switch(c)
       {
           case 'a':
@@ -45,7 +47,9 @@ char c;
           
           default:
           printf("That inputed character is not allocated to one of the function, please select another character");
-      }
+  }
+  }
+
 }
 
 
