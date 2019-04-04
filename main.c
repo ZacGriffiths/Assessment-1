@@ -13,12 +13,14 @@ char c;
      printf("d) substitution cipher encryption\n");
      printf("e) substitution cipher decryption with given substitutions\n");   
      printf("f) substitution cipher decryption (no help)\n\n");
-     printf("Selection:\n ");
-     scanf("%c", &c);
+     printf("Selection: ");
+     scanf("\n%s", &c);
+
  }
      while(c < 'a' || c > 'f');        /*the do loop is repeated until one of the letters is inputed*/
     {}
-      switch(c)
+     
+     switch(c)
       {
           case 'a':
           printf("You have selected 'a'\n");              /*this printf is just a place holder, input the function later*/
@@ -45,7 +47,7 @@ char c;
           break;
           
           default:
-          printf("That inputed character is not allocated to one of the function, please select another character");
+          printf("That inputed character is not allocated to one of the functions, please select another character\n");
   }
 }
 
