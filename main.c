@@ -1,11 +1,10 @@
 #include <stdio.h>
 
-int main(void){
+int main(){
 
  /* This will be the user interface*/
-char c = 0;
-     do
-     {
+char c;
+
      printf("Please enter a letter that correspondes to the function you wish to use\n");
      printf("a) rotation cipher encryption\n");
      printf("b) rotation cipher decryption using the rotation amount\n");
@@ -13,43 +12,41 @@ char c = 0;
      printf("d) substitution cipher encryption\n");
      printf("e) substitution cipher decryption with given substitutions\n");   
      printf("f) substitution cipher decryption (no help)\n\n");
-     printf("Selection: ");
-     scanf("%c", &c);
- }
+     printf("Selection:\n ");
+     scanf(" %s", &c);
 
      while(c < 'a' || c > 'f');        /*the do loop is repeated until one of the letters is inputed*/
-    {
+      {
       switch(c)
       {
           case 'a':
-          printf("a");              /*this printf is just a place holder, input the function later*/
+          printf("a\n");              /*this printf is just a place holder, input the function later*/
           break;
           
           case 'b':
-          printf("b");             /*same here*/
+          printf("b\n");             /*same here*/
           break;
           
           case 'c':
-          printf("c");             /* and here*/
+          printf("c\n");             /* and here*/
           break;
           
           case 'd':
-          printf("d");             /* and here*/
+          printf("d\n");             /* and here*/
           break;
           
           case 'e':
-          printf("e");             /* same again*/
+          printf("e\n");             /* same again*/
           break;
           
           case 'f':
-          printf("f");             /* same again*/
+          printf("f\n");             /* same again*/
           break;
           
           default:
-          printf("That inputed character is not allocated to one of the function, please select another character");
+          printf("That inputed character is not allocated to one of the function, please select another character\n");
   }
   }
-
 }
 
 
