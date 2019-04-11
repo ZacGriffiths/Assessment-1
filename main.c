@@ -28,7 +28,7 @@ char c;
             int n;
             printf("Enter the word you wish to encrypt: ");
             scanf("%s", str);
-            printf("Enter the number of rotations you want (any number over 26 will just loop over e.g. entering 29 will revert to 3: ");
+            printf("Enter the number of rotations you want (any number over 26 will just loop over e.g. entering 29 will revert to 3): ");
             scanf("%d", &n);
             if (n > 26)
                 {
