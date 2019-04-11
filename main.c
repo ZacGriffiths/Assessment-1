@@ -20,8 +20,11 @@ inputed and stores it as a character 'c'*/
      printf("f) substitution cipher decryption (no help)\n\n");
      printf("Selection: ");
      scanf(" %c", &c);
-
-    }
+     if (c < 'a' || c > 'f')
+         {
+               printf("\nThat is an incorrect function value, please choose a value corresponding to a function (a-f)\n");
+         }
+     }
     
     /* this do while loop is used to control the switch of the user interface.
     What this does is while a value is less then 'a' (under the alphabet) or is
