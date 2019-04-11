@@ -1,8 +1,14 @@
 #include <stdio.h>
+#include "myfunctions.h" /* This is my functions for the encryption and decryption ciphers */
 
 int main(void){
-char c;
- /* This is the user interface. It allows the user to pick what type of encryption or decryption they wish to use*/
+char c; /* this is used to store the users input value */
+
+/* This is the user interface. It allows the user to pick what type of 
+encryption or decryption they wish to use. These printf statements print
+the user interface while the scanf scans a character that the user has 
+inputed and stores it as a character 'c'*/
+
      do
      {
      printf("\nPlease enter a letter that correspondes to the function you wish to use\n");
@@ -15,44 +21,32 @@ char c;
      printf("Selection: ");
      scanf(" %c", &c);
 
- }
-     while(c < 'a' || c > 'f');        /*the do loop is repeated until one of the letters is inputed*/
+    }
+    
+    /* this do while loop is used to control the switch of the user interface.
+    What this does is while a value is less then 'a' (under the alphabet) or is
+    greater then 'f' (any other number or letter) it will print the do loop (all
+    the printf statements) and print the wrong character line until the user
+    inputs a value of either 'a, b, c, d, e or f' */
+   
+     while(c < 'a' || c > 'f');
     {}
+    /* If a character between a and f are inputed then the code then proceeds to
+    this switch statement where the character inputed causes a cipher code to proceed */
      switch(c)
       {
 /************************************************************************/       
           case 'a':
-     {
+       {
             char str[100];
-            int c = 0;
             int n;
             printf("Enter the word you wish to encrypt: ");
-            scanf("%s", str);
-            printf("Enter the number of rotations you want (any number over 26 will just loop over e.g. entering 29 will revert to 3): ");
+            scanf(" %[^\n]s", str);
+            printf("Enter the number of rotations you want (any number over 26 will just loop over e.g. entering 29 will revert to 3: ");
             scanf("%d", &n);
-            if (n > 26)
-                {
-                        n = n % 26;
-                }
-    
-            while (str[c] != '\0') 
-        {
-            if (str[c] >= 'a' && str[c] <= 'z')
-                {
-                        str[c] = str[c] - 32;
-                }
-            str[c] = str[c] - n;
-      
-            if (str[c] < 65)
-                {
-                        str[c] = str[c] + 26;
-                }
-            c++;
-        }
-          printf("\n%s\n", str);
-          break;
-      }
-
+            RotationEncrypt(str, n);
+break;
+}
           
 /************************************************************************/
           
@@ -87,7 +81,7 @@ char c;
 /************************************************************************/                 
           
           default:
-          printf("That inputed character is not allocated to one of the functions, please select another character\n");
+          return 0;
   }
 }
 
