@@ -16,12 +16,12 @@ void RotationEncrypt(char str[], int n)
             if (str[c] >= 'A' && str[c] <= 'Z')
             {
                 str[c] = str[c] - n;
-            }
-
-            if (str[c] > 32 && str[c] < 65)
+                
+                if (str[c] > 32 && str[c] < 65)
                 {
                         str[c] = str[c] + 26;
                 }
+            }     
             printf("%s\n", str);
             c++;
         }
