@@ -25,7 +25,6 @@ inputed and stores it as a character 'c'*/
                printf("\nThat is an incorrect function value, please choose a value corresponding to a function (a-f)\n");
          }
      }
-    
     /* this do while loop is used to control the switch of the user interface.
     What this does is while a value is less then 'a' (under the alphabet) or is
     greater then 'f' (any other number or letter) it will print the do loop (all
@@ -41,22 +40,29 @@ inputed and stores it as a character 'c'*/
 /************************************************************************/       
           case 'a':
        {
-            char str[100];
+            char str[1000];
             int n;
-            printf("Enter the word you wish to encrypt: ");
+            printf("Enter the phrase you wish to encrypt: ");
             scanf(" %[^\n]s", str);
             printf("Enter the number of rotations/key you want (any number over 26 will just loop over e.g. entering 29 will revert to 3: ");
             scanf("%d", &n);
             RotationEncrypt(str, n);
-break;
-}
+            break;
+     }
           
 /************************************************************************/
           
           case 'b':
-          printf("You have selected 'b'\n");             /*same here*/
-          break;
-          
+          {
+               char str[1000];
+               int n;
+               printf("Enter the phrase you wish to decrypt: ");
+               scanf(" %[^\n]s", str);
+               printf("Enter the number of rotations/key of the encryption (any number over 26 will just loop over e.g. entering 29 will revert to 3: ");
+               scanf("%d", &n);
+               RotationKeyDecryption(str, n);
+               break;
+          }    
 /************************************************************************/          
           
           case 'c':
