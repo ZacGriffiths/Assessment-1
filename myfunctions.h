@@ -22,10 +22,9 @@ void RotationEncrypt(char str[], int n)
                         str[c] = str[c] + 26;
                 }
             }     
-            printf("%s\n", str);
             c++;
         }
-        printf("\n%s\n", str);
+    return;
 }
 
 /**************************************************/
@@ -54,8 +53,7 @@ void RotationKeyDecryption (char str[], int n)
                         str[c] = str[c] - 26;
                 }
             }     
-            printf("%s\n", str);
             c++;
         }
-        printf("\n%s\n", str);
+    return;
 }
