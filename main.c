@@ -74,14 +74,29 @@ inputed and stores it as a character 'c'*/
           
           case 'b':
           {
-               char str[1000];
-               int n;
+            char str[1000];
+            int n;
+            fprintf(output, "Inputed phrase:\n\n");
+            for(i = 0; feof(input) == 0; i++)
+            {
+                fscanf(input, "%c", &characters);
+                fprintf(output, "%c", characters);
+                str[i] = characters;
+                characters = 0;
+           }
+           if(str[0] == 0)
+           {
                printf("Enter the phrase you wish to decrypt: ");
                scanf(" %[^\n]s", str);
-               printf("Enter the number of rotations/key of the encryption (any number over 26 will just loop over e.g. entering 29 will revert to 3: ");
-               scanf("%d", &n);
-               RotationKeyDecryption(str, n);
-               break;
+               fprintf(output, "%s", str);
+           }
+            printf("Enter the number of rotations/key you want (any number over 26 will just loop over e.g. entering 29 will revert to 3: ");
+            scanf("%d", &n);
+            RotationKeyDecryption(str, n);
+            fprintf(output, "\n\nOutputed code: \n\n%s", str);
+            printf("your text is outputed in the output.txt file\n\n");
+            fopen("input.txt", "w+");
+            break;
           }    
 /************************************************************************/          
           
