@@ -1,13 +1,16 @@
 #include <stdio.h>
 #include "myfunctions.h" /* This is my functions for the encryption and decryption ciphers */
+#include <string.h>
 
 int main(void){
-FILE *output, *input;
+FILE *output, *input, *newalphabet;
 char c; /* this is used to store the users input value */
 int i;  /* used for character identifying in the File I/O of functions*/
+int j;  /* another temporary character used in File I/O */
 char characters; /* used as a temporary value for characters in File I/O */
 input = fopen("input.txt", "r+"); /* used as the input file for the messege to code or coded messege */
 output = fopen("output.txt", "w"); /* output file to show outputed decrypted or encrypted code */
+newalphabet = fopen("newalphabet.txt", "r+");
 
 /* This is the user interface. It allows the user to pick what type of 
 encryption or decryption they wish to use. These printf statements print
@@ -19,9 +22,9 @@ inputed and stores it as a character 'c'*/
      printf("\nPlease enter a letter that correspondes to the function you wish to use\n");
      printf("a) rotation cipher encryption\n");
      printf("b) rotation cipher decryption using the rotation amount\n");
-     printf("c) rotation cipher decryption (no help)\n");
-     printf("d) substitution cipher encryption\n");
-     printf("e) substitution cipher decryption with given substitutions\n");   
+     printf("c) substitution cipher encryption\n");
+     printf("d) substitution cipher decryption with given substitutions\n");
+     printf("e) rotation cipher decryption (no help)\n");   
      printf("f) substitution cipher decryption (no help)\n\n");
      printf("Selection: ");
      scanf(" %c", &c);
@@ -101,14 +104,88 @@ inputed and stores it as a character 'c'*/
 /************************************************************************/          
           
           case 'c':
-          printf("You have selected 'c'\n");             /* and here*/
+          {
+              char str[1000];
+              char key[1000];
+              char newalphabetcharacters;
+              fprintf(output, "Inputed phrase:\n\n");
+              for(i = 0; feof(input) == 0; i++)
+              {
+                  fscanf(input, "%c", &characters);
+                  fprintf(output, "%c", characters);
+                  str[i] = characters;
+                  characters = 0;
+              }
+              if(str[0] == 0)
+              {
+                  printf("Enter the phrase you wish to encrypt: ");
+                  scanf(" %[^\n]s", str);
+                  fprintf(output, "%s", str);
+              }
+              fprintf(output, "\n\nThe new alphabet:\n\n");
+              for(j = 0; feof(newalphabet) == 0; j++)
+              {
+                  fscanf(newalphabet, "%c", &newalphabetcharacters);
+                  fprintf(output, "%c", newalphabetcharacters);
+                  key[j] = newalphabetcharacters;
+                  newalphabetcharacters = 0;
+              }
+              if(key[0] == 0)
+              {
+                 printf("Please enter the key (the new alphabet): ");
+                 scanf("%s", key);
+              }
+              SubstitutionCipherEncryption(str, key);
+              fprintf(output, "\n\nOutputed code: \n\n%s", str);
+              printf("your text is outputed in the output.txt file\n\n");
+              fopen("input.txt", "w+");
+              fopen("newalphabet.txt", "w+");
           break;
+        }
+
           
 /************************************************************************/             
           
           case 'd':
-          printf("You have selected 'd'\n");             /* and here*/
+          {
+              char str[1000];
+              char key[1000];
+              char newalphabetcharacters;
+              fprintf(output, "Inputed phrase:\n\n");
+              for(i = 0; feof(input) == 0; i++)
+              {
+                  fscanf(input, "%c", &characters);
+                  fprintf(output, "%c", characters);
+                  str[i] = characters;
+                  characters = 0;
+              }
+              if(str[0] == 0)
+              {
+                  printf("Enter the phrase you wish to decrypt: ");
+                  scanf(" %[^\n]s", str);
+                  fprintf(output, "%s", str);
+              }
+              fprintf(output, "\n\nThe new alphabet:\n\n");
+              for(j = 0; feof(newalphabet) == 0; j++)
+              {
+                  fscanf(newalphabet, "%c", &newalphabetcharacters);
+                  fprintf(output, "%c", newalphabetcharacters);
+                  key[j] = newalphabetcharacters;
+                  newalphabetcharacters = 0;
+              }
+              if(key[0] == 0)
+              {
+                 printf("Please enter the key (the new alphabet): ");
+                 scanf("%s", key);
+              }
+              SubstitutionCipherDecryption(str, key);
+              fprintf(output, "\n\nOutputed code: \n\n%s", str);
+              printf("your text is outputed in the output.txt file\n\n");
+              fopen("input.txt", "w+");
+              fopen("newalphabet.txt", "w+");
           break;
+      }
+
           
 /************************************************************************/         
           
