@@ -1,3 +1,4 @@
+#include<string.h>
 void RotationEncrypt(char str[], int n)
 {
     int c = 0;

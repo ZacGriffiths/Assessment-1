@@ -139,6 +139,7 @@ inputed and stores it as a character 'c'*/
               char str[1000]; /*users phrase*/
               char key[1000]; /*The new alphabet*/
               char newalphabetcharacters; /*temporary value for new alphabet*/
+              /*same in case a*/
               fprintf(output, "Inputed phrase:\n\n");
               for(i = 0; feof(input) == 0; i++)
               {
@@ -189,6 +190,7 @@ inputed and stores it as a character 'c'*/
               char str[1000];
               char key[1000];
               char newalphabetcharacters;
+              /*same in case c*/
               fprintf(output, "Inputed phrase:\n\n");
               for(i = 0; feof(input) == 0; i++)
               {
@@ -230,8 +232,11 @@ inputed and stores it as a character 'c'*/
 /************************************************************************/         
           
           case 'e':
-          printf("Rotation cipher decryption(no key) goes here\n");             /* placeholder*/
-          break;
+          {
+             /*placeholder*/
+              break;
+          }
+
           
 /************************************************************************/                
           
