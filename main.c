@@ -21,7 +21,7 @@ char c; /* this is used to store the users input value */
 int i;  /* used for character identifying in the File I/O of functions*/
 int j;  /* another temporary character used in File I/O */
 char characters; /*used as a temporary value for characters in File I/O*/
-input = fopen("input.txt", "r+"); /* used as the input file for the messege to code or coded messege */
+input = fopen("input.txt", "r+"); /*used as the input file for the messege to code or coded messege */
 output = fopen("output.txt", "w"); /* output file to show outputed decrypted or encrypted code */
 newalphabet = fopen("newalphabet.txt", "r+"); /* This is the input file used for the newalphabet in substitution cipher*/
 /* This is the user interface. It allows the user to pick what type of 
@@ -112,13 +112,13 @@ inputed and stores it as a character 'c'*/
                 fprintf(output, "%c", characters);
                 str[i] = characters;
                 characters = 0;
-           }
-           if(str[0] == 0)
-           {
-               printf("Enter the phrase you wish to decrypt: ");
-               scanf(" %[^\n]s", str);
-               fprintf(output, "%s", str);
-           }
+            }
+            if(str[0] == 0)
+            {
+                printf("Enter the phrase you wish to decrypt: ");
+                scanf(" %[^\n]s", str);
+                fprintf(output, "%s", str);
+            }
             printf("Enter the number of rotations/key you want (any number over 26 will just loop over e.g. entering 29 will revert to 3: ");
             scanf("%d", &n);
             RotationKeyDecryption(str, n); /*main code used for rotation cipher decryption(with key)*/
@@ -128,6 +128,7 @@ inputed and stores it as a character 'c'*/
             printf("\n\nOutputed code: %s\n", str);
             break;
           }    
+
 /************************************************************************
  * This is the code for substitution cipher encryption. It takes the users phrase and the new alphabet
  * to output the users encrypted code
@@ -165,8 +166,8 @@ inputed and stores it as a character 'c'*/
               {
                  printf("Please enter the key (the new alphabet): ");
                  scanf("%s", key);
+                 fprintf(output, "%s", key);
               }
-              fprintf(output, "%s", key);
               SubstitutionCipherEncryption(str, key); /*main code used for substitution cipher encryption*/
               fprintf(output, "\n\nOutputed code: \n\n%s", str);
               printf("your text is outputed in the output.txt file\n\n");
@@ -214,8 +215,8 @@ inputed and stores it as a character 'c'*/
               {
                  printf("Please enter the key (the new alphabet): ");
                  scanf("%s", key);
+                 fprintf(output, "%s", key);
               }
-              fprintf(output, "%s", key);
               SubstitutionCipherDecryption(str, key); /*main code used for substitution cipher decryption*/
               fprintf(output, "\n\nOutputed code: \n\n%s", str);
               printf("your text is outputed in the output.txt file\n\n");
@@ -229,13 +230,13 @@ inputed and stores it as a character 'c'*/
 /************************************************************************/         
           
           case 'e':
-          printf("You have selected 'e'\n");             /* same again*/
+          printf("Rotation cipher decryption(no key) goes here\n");             /* placeholder*/
           break;
           
 /************************************************************************/                
           
           case 'f':
-          printf("You have selected 'f'\n");             /* same again*/
+          printf("substitution ciper decryption(no key) goes here\n");             /* placeholder*/
           break;
           
 /************************************************************************/                 
